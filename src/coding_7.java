@@ -31,14 +31,13 @@ class Solution_7 {
 				if(StudentMap.get(i-1) < 0 ) {
 					StudentMap.put(i-1, StudentMap.get(i-1) + 1);
 					StudentMap.put(i, StudentMap.get(i) - 1);
-				}else {
-					if (StudentMap.get(i+1) < 0) {
+				}else if (StudentMap.get(i+1) < 0) {
 						StudentMap.put(i+1, StudentMap.get(i+1) + 1);
 						StudentMap.put(i, StudentMap.get(i) - 1);
 					}
 				}
 			}
-		}
+		
 		
 		// 5. 0이상인 값 찾기 
 		int result = 0;
@@ -59,8 +58,8 @@ public class coding_7 {
 	public static void main(String[] args) {
 		Solution_7 sol = new Solution_7();
 		int n = 3;
-		int lost[] = {3};
-		int reserve[] = {1};
+		int[] lost = {3};
+		int[] reserve = {1};
 		
 		
 		System.out.println(sol.solution(n, lost, reserve));
