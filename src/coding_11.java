@@ -4,14 +4,6 @@ class Solution_11 {
 	public int solution(int[] a, int[] b) {
         
 		
-		int max_length = 0;
-		
-		if (a.length > b.length) {
-			max_length = a.length;
-		}else {
-			max_length = b.length;
-		}
-		
 		int sum = 0 ;
 		
 		for (int i = 0; i < a.length; i++) {
