@@ -5,7 +5,7 @@ class Solution_16 {
         
     	int shot_len = 0;
     	
-    	for(int i = 1; i< s.length(); i++) {
+    	for(int i = 1; i<=s.length()/2; i++) {
     		
     		if(i == 1) {
     			shot_len = shotText(i,s).length();
@@ -15,9 +15,17 @@ class Solution_16 {
     			}
     		}
     	}
+//    	
+//    	System.out.println(s.length());
     	
-    	System.out.println(shot_len);
+//    	for(int i = 1; i< s.length()/2; i++) {
+//    		System.out.println(i);	
+//    		System.out.println(shotText(i,s));
+//    		System.out.println(shotText(i,s).length());
     	
+//    	}
+    	
+//    	System.out.println(shotText(8,s));
 //    	String result = shotText(1, s); 
         
 //    	System.out.println(result);
@@ -29,31 +37,31 @@ class Solution_16 {
     
 	public String shotText(int n, String s) {
 		
+		String ss = s;
 		int num_cnt = 1;
-        String pre_Text = s.substring(0,n);
-        String this_Text = s.substring(n,n*2);
+        String pre_Text = ss.substring(0,n);
+        String this_Text = ss.substring(n,n*2);
         String result = "";
         
-        int len_cnt = s.length();
+        
+        int len_cnt = ss.length();
         for(int i =1; i<len_cnt/n; i++){
         	
 
         	
 //	        	System.out.println(i);
-        	if (i > 0) {
+        	if (i > 1) {
         		pre_Text = this_Text;
-        	}else {
-        		pre_Text = s.substring(0,n);	
         	}
         	
-        	this_Text = s.substring(n,n*2);
-        	s = s.substring(n);
+        	this_Text = ss.substring(n,n*2);
+        	ss = ss.substring(n);
         	
-        	
-	        	System.out.println("pre : " + pre_Text);
-	        	System.out.println("this : " + this_Text);
-	        	System.out.println(s);
-        	
+//        	
+//	        	System.out.println("pre : " + pre_Text);
+//	        	System.out.println("this : " + this_Text);
+//	        	System.out.println(s);
+//        	
         	if (pre_Text.equals(this_Text)) {
         		num_cnt += 1;
         		
@@ -77,7 +85,7 @@ class Solution_16 {
 
 public class coding_16{
 	public static void main(String[] args) {
-		String s = "aabbaccc";
+		String s = "xababcdcdababcdcd";
 		
 		
 		Solution_16 sol = new Solution_16();
