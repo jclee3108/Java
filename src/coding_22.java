@@ -1,48 +1,39 @@
-
-import java.util.ArrayList;
-import java.util.Collections;
-
-class Solution_22 {
-    public int[] solution(int[] arr) {
-        
-    	
-    	ArrayList<Integer> IntArrayList = new ArrayList<>();
-
-    	for(int i=0; i<arr.length; i++) {
-    		IntArrayList.add(arr[i]);
-    	}
-    	
-    	int int_min = Collections.min(IntArrayList);
-    
-    	IntArrayList.remove(Integer.valueOf(int_min));
-    	
-    	
-    	int[] value = new int[arr.length-1];
-    	
-    	
-    	for(int i=0; i<IntArrayList.size(); i++){
-    		value[i] = IntArrayList.get(i);
-    	}
-    	
-    	
-    	if(IntArrayList.size() == 0) {
-    		value = new int[1];
-    		value[0] = -1;
-    	}
-    	
-    	return value; 
-    }
-}
-
-
-
+import java.util.Arrays;
+import java.util.HashSet;
 public class coding_22 {
-	public static void main(String[] args) {
-		int[] arr = {10};
-		
-		
-		Solution_22 sol = new Solution_22();
-		System.out.println(sol.solution(arr));
-		
-	}
+    
+    public static String[] uniqueNames(String[] names1, String[] names2) {
+    	
+    	
+    	HashSet<String> Set = new HashSet<>();
+    	
+    	for(String s1 : names1) {
+    		Set.add(s1);
+    	}
+    	for(String s2 : names2) {
+    		Set.add(s2);
+    	}
+    	
+    	
+    	String[] result = new String[Set.size()];
+    	
+    	int i = 0; 
+    	for(String ss : Set) {
+    		result[i++] = ss;
+    	}
+    	
+    	Arrays.sort(result);
+    
+        
+        return result;
+        
+    }
+    
+    public static void main(String[] args) {
+        String[] names1 = new String[] {"Ava", "Emma", "Olivia"};
+        String[] names2 = new String[] {"Olivia", "Sophia", "Emma"};
+        System.out.println(String.join(", ", coding_22.uniqueNames(names1, names2))); // should print Ava, Emma, Olivia, Sophia
+//        System.out.println(coding_22.uniqueNames(names1, names2));
+        
+    }
 }
